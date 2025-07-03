@@ -1,0 +1,31 @@
+From df0e470c46678cc4a71f9284f03e92ca06d46bf6 Mon Sep 17 00:00:00 2001
+From: Maxime D <tenmondu34@gmail.com>
+Date: Thu, 3 Jul 2025 09:35:59 +0200
+Subject: [PATCH] assignment4-part2
+
+---
+ finder-app/finder-test.sh | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
+
+diff --git a/finder-app/finder-test.sh b/finder-app/finder-test.sh
+index 81b7b67..4b6db14 100755
+--- a/finder-app/finder-test.sh
++++ b/finder-app/finder-test.sh
+@@ -55,10 +55,12 @@ fi
+ for i in $( seq 1 $NUMFILES)
+ do
+ 	mkdir -p $WRITEDIR
+-	./writer "$WRITEDIR/${username}$i.txt" "$WRITESTR"
++	writer "$WRITEDIR/${username}$i.txt" "$WRITESTR"
+ done
+ 
+-OUTPUTSTRING=$(./finder.sh "$WRITEDIR" "$WRITESTR")
++finder.sh "$WRITEDIR" "$WRITESTR" > /tmp/assignment4-result.txt
++
++OUTPUTSTRING=$(cat /tmp/assignment4-result.txt)
+ 
+ # remove temporary directories
+ rm -rf /tmp/aeld-data
+-- 
+2.34.1
+
